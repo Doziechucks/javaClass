@@ -1,0 +1,12 @@
+Stage 1 
+Collect value in feet 
+Convert to meter
+Display result
+
+Stage 2
+Prompt user to enter value in feet 
+Collect value from user 
+Store the value in a variable valueF
+Convert the value to meters using valueF x 0.305
+Store the result in a variable valueM
+Display the result of valueMph 
