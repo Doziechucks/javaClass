@@ -1,0 +1,19 @@
+Stage 1
+Collect 3 digit number from user
+Get the first, second and last digit
+Add the three digits
+Display the three digits
+
+Stage 2
+Prompt user to input a number between 0 to 1000
+Collect the number from user
+Store the number in a variable digitA
+Perform digitA / 100 to get first Digit 
+Save the first Digit in a variable firstNo
+Perform DigitA % 10 to get last Digit
+Save the third Digit in a variable lastNo
+Perform digitA / 10 to get the first 2 Digit 
+Save the 2 first Digit in a variable tosec
+Perform tosec % 10 to get second Digit 
+Save the second Digit in a variable SecondNo
+

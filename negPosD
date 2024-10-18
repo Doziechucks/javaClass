@@ -1,0 +1,65 @@
+Stage !
+1. Get numbers from user 
+2. Check if its greater lesser or greater than 0
+3. Count the number of numbers greater, lesser or equal to 0
+4. Print the numbers out
+
+Stage 2
+Ask user to input first number 
+Collect the first number from user 
+Store the number as FirstNo
+Create variable posNum
+Create variable negNum
+Create variable zeroNum
+If Number > 0 
+Add 1 to posNum
+If Number = 0 
+Add 1 to zeroNum
+If Number < 0 
+Add 1 to negNum
+Ask user to input second number 
+Collect the second number from user 
+Store the number as secondHo
+If the Number > 0 
+Add 1 to posNum
+If Number = 0 
+Add 1 to zeroNum
+If Number < 0 
+Add 1 to negNum
+Ask user to input second number 
+Collect the second number from user 
+Store the number as secondHo
+If the Number > 0 
+Add 1 to posNum
+If Number = 0 
+Add 1 to zeroNum
+If Number < 0 
+Add 1 to negNum
+Ask user to input third number 
+Collect the third number from user 
+Store the number as thirdHo
+If the Number > 0 
+Add 1 to posNum
+If Number = 0 
+Add 1 to zeroNum
+If Number < 0 
+Add 1 to negNum
+Ask user to input fourth number 
+Collect the fourth number from user 
+Store the number as fourtNo
+If the Number > 0 
+Add 1 to posNum
+If Number = 0 
+Add 1 to zeroNum
+If Number < 0 
+Add 1 to negNum
+Ask user to input gift number 
+Collect the fift number from user 
+Store the number as fift
+If the Number > 0 
+Add 1 to posNum
+If Number = 0 
+Add 1 to zeroNum
+If Number < 0 
+Add 1 to negNum
+Print the value of posNum, negNum and zeroNum

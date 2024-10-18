@@ -1,0 +1,17 @@
+Stage 1
+Collect 3 digit number from user
+Get the first and last digit
+Compare the two to see if the number is palindrome
+Display if it is a Palindrome
+
+Stage 2
+Prompt user to input a number between 0 to 1000
+Collect the number from user
+Store the number in a variable ifPalin
+Perform ifPalin / 100 to get first Digit 
+Save the first Digit in a variable firstNo
+Perform ifPalin % 10 to get last Digit
+Save the last Digit in a variable lastDig
+If firstNo is equals lastDig, 
+Print number is a palindrome 
+Else, print it is not a palindrome
