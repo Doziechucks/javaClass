@@ -1,0 +1,15 @@
+Stage 1
+Collect users weight in kilograms 
+Collect height in meters
+Calculate users BMI
+
+Stage 2
+Prompt user to enter weight
+Collect weight from user
+Store weight of user as weightinkilograms
+Prompt user to enter height
+Collect weight from user
+Store weight of user as heightinmeters
+Calculate BMI using (weightinkilograms)/(heightinmeters * heightinmeters)
+Store calculation in bmi
+Display the result of calculation
