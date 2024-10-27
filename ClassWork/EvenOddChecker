@@ -1,0 +1,6 @@
+Ask user to enter number
+Collect number from user
+Store the number as numberInput
+Solve numberInput % 2
+If its equal zero print 1
+If its not equal zero print 0

@@ -1,0 +1,16 @@
+Ask user to enter first number 
+Collect first number from user 
+Store the first number as firstNumber
+Declare a variable largest
+Store the firstNumber as largest
+Ask user to enter second number 
+Collect second number from user 
+Store the first number as secondNumber
+Check if secondNumber is larger than largest
+If its true store store largest as secondNumber
+Ask user to enter third number 
+Collect third number from user 
+Store the third number as thirdtNumber
+Check if thirdNumber is larger than largest
+If its true store store largest as thirdNumber
+Display largest value

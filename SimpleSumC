@@ -1,0 +1,12 @@
+Ask user to input integer
+Collect integer
+Store integer intnumber
+Ask user to input float
+Collect float number
+Store float floatnumber
+Ask user to input double
+Collect double number
+Store float doublenumber
+Find the sum 
+Store in someOfnum
+Print result

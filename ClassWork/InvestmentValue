@@ -1,0 +1,26 @@
+Stage 1
+Collect investment amount
+Collect annual interest rate in percentage
+Enter the number of years
+Calculate the accumulated value 
+Display the accumulated value
+
+Stage 2
+1. Prompt user to enter investment amount 
+2. Collect the investment amount from the user
+3. store the investment amount collected from the user as investmentAmount
+4. Prompt user to enter annual interest rate 
+5. Collect the interest rate from the user
+6. store the interest rate collected from the user as interestRate
+7. Prompt user to enter number of years 
+8. Collect the number of years from the user
+9. Calculate monthly interest rate
+10. Store the value monthlyInterestRate
+11. store the number of years collected from the user as numberOfYears
+
+Calculate 
+
+investmentAmount * Math.power((1 + interestRate), numberOfYears
+
+Store as returnOnInvestment
+Print result

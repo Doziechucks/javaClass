@@ -1,0 +1,9 @@
+Ask user to enter number
+Collect number from user
+Store the number as numberInput
+If number input greater than 0
+Print it is a positive number
+If number input less than 0
+Print it is a negative number
+If number input = 0
+Print it is a neutra number

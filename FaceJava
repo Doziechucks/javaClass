@@ -1,0 +1,10 @@
+
+Print the first line using escape characters for the quotes
+Print second, third 
+Print forth line keeping in mind using escape bar to escape apostrophe
+ +"""""+
+[| o o |]
+ |  ^  |
+ |     |
+ +-----+
+

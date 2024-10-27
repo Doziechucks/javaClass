@@ -1,0 +1,20 @@
+Stage 1
+Collect weight from user 
+Collect height 
+Convert them to kilo and meters
+Calculate BMI 
+Display the result
+
+Stage2 
+Ask user to enter weight 
+Collect weight of user 
+Store the weight in weigthInput
+Ask user to enter height 
+Collect height of user 
+Store the height in heigthInput
+Convert weight to kilogram using  weigthInput * 0.45359237
+Store in weight
+Convert height tp meters using  heigthInput * 0.0254
+Store in height calculate BMI using weight / (height * height)
+Store in BMI 
+Print the result 

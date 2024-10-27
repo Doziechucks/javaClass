@@ -1,0 +1,16 @@
+Stage 1
+Collect velocity
+Collect acceleration
+Solve for the runway length 
+Display result
+
+Stage 2
+Ask user to enter velocity
+Collect the velocity from user 
+Store the velocity as planeVelocity
+Ask user to enter acceleration
+Collect the Acceleration from user 
+Store the velocity as planeAcceleration
+Calculate Runway length using (planeVelocity * planeVelocity) / (2 * planeAcceleration)
+Store in a variable runwayLength
+And display the result

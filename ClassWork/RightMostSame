@@ -1,0 +1,24 @@
+Ask user to input first number
+Collect first number from user 
+Store as firstNumber
+Ask user to input second number
+Collect first number from user 
+Store as secondNumber
+Ask user to input third number
+Collect first number from user 
+Store as thirdNumber
+
+Solve = firstNumber % 10
+Store in edgeone
+Solve = secondNumber % 10
+Store in edgeTwo
+Solve = thirdNumber % 10
+Store in edgethree
+
+if edgeOne ==  edgeTwo
+Print true
+if edgeOne ==  edgeThree
+Print true
+if edgethree ==  edgeTwo
+Print true
+Else print false

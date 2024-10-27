@@ -1,0 +1,12 @@
+Stage 1
+Collect pound value 
+convert to kilogram 
+display the result
+
+Stage 2
+Ask user to input weight in pounds
+Collect the value 
+Store in a variable weightPounds 
+Convert the weight to kilograms using weightPounds * 0.454
+Store the value weightInkilograms
+Display the result

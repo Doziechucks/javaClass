@@ -1,0 +1,23 @@
+Stage 1 
+Collect initial temperature
+Collect final temperature
+Collect amount of water in kilograms
+Calculate the energy 
+Print the result
+
+
+Stage 2
+
+Ask user to enter initial temperature
+Collect the initial temperature
+Store the initial temperature as initialtemperature
+Ask user to enter final temperature
+Collect the final temperature
+Store the initial temperature as finaltemperature
+Ask user to enter amount of water in kilogram
+Collect the initial mass of water
+Store the mass of water as massOfWater
+Calculate the energy needed using 
+Q = massOfWater * (finaltemperature - initialtemperature)
+Store the result in energyNeeded
+Print the result 
