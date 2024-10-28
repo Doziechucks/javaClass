@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Multiplier{
+public class RootsOfQuadratics{
 public static void main(String[] args){
    Scanner input = new Scanner(System.in);
    System.out.print("Enter a: " );

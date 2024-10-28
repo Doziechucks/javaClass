@@ -1,0 +1,17 @@
+Ask user to input number
+Collect number from user
+Store as userInput
+If userInput = 1
+Print Monday
+If userInput = 2
+Print Tuesday
+If userInput = 3
+Print Wednesday
+If userInput = 4
+Paint Thursday
+If userInput = 5
+Print Friday
+If userInput = 6
+Print Saturday
+If userInput = 7
+Print Sunday

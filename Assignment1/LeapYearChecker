@@ -1,0 +1,6 @@
+Ask user to input number
+Collect alphabet from user
+Store as userInput
+if userInput / 4 == 0
+Print is a leap year 
+Else print not a leap year
