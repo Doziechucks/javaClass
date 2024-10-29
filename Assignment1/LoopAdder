@@ -1,0 +1,14 @@
+1.Ask user to input number
+2.Collect number from user
+3.Store number as userInput
+4.Declare a variable quitter
+5.Declare and set summation equals userInput 
+6.Ask user to enter another number
+7.Collect the number 
+8.Store as userInput2
+9.set summation = summation + userInput2
+10. Ask user to enter -1 to quit
+11. store user input in quitter 
+12 check if its equal to -1 if not repeat
+Repeat 6 to 12 to till user enters -1 
+Print summation
