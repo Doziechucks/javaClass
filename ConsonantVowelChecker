@@ -1,0 +1,8 @@
+Ask user to input alphabet
+Collect alphabet from user
+Store as alphabetInput
+If alphabet input = a, e, I, o or u 
+Print alphabet is a vowel
+If it is equal = b, c, d, f, g, h, j, k, l, m, n, p, q, r, s, t, v, w, x, y, z
+print alphabet is a consonant
+Else print invalid input  

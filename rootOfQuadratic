@@ -1,0 +1,12 @@
+Ask user to input coefficient of x squared
+Collect number from user
+Store as a
+Ask user to coefficient of x 
+Collect alphabet from user
+Store as b
+Ask user to constant 
+Collect alphabet from user
+Store as c
+ Use -b + or - squareroot(b^2 - 4*a*c) all divided by 2a
+
+Print result

@@ -1,0 +1,11 @@
+Ask user to input salary
+Collect number from user
+Store as userInput
+
+If userInput < 15000
+userInput * 0.15
+Store in tax
+If userInput > 15000
+userInput * 0.2
+Store in tax
+Print tax

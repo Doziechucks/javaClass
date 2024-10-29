@@ -1,0 +1,16 @@
+Ask user to input first number
+Collect number from user
+Store as firstNo
+Ask user to input second number
+Collect number from user
+Store as secondNo
+
+Turn firstNo to string and 
+remover numbers more than 3dp
+Store in firstNumber
+Turn secondNo to string and
+remover numbers more than 3dp
+Store in secondNumber
+If firstNumber == secondNumber 
+Print the numbers are equal
+Else print they are not equal
