@@ -1,0 +1,10 @@
+Generate a random number
+Ask user to guess the random number 
+Collect user input
+Store it as guess
+Compare guess to  generated random number
+If its usual print guess correct
+If its higher print guess to high and ask user to try again
+If it lower print to low and ask user to try again
+Repeat the process till guess is equal to generated random number 
+Then print guess is correct
