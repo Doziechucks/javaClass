@@ -1,0 +1,15 @@
+1.Ask user to input number
+2.Collect number from user
+3.Store number as userInput
+4.Declare a variable quitter
+5.Declare and set largest equals userInput 
+6.Ask user to enter another number
+7.Collect the number 
+8.Store as userInput2
+9.If userInput2 greater than largest
+10.Set largest equals user input 2
+11. Ask user to enter -1 to quit
+12 store user input in quitter 
+13 check if its equal to -1 if not repeat
+Repeat 6 to 13 to till user enters -1 
+Print largest
