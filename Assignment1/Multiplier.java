@@ -5,7 +5,7 @@ public static void main(String[] args){
    System.out.print("enter number: " );
    int numberInput = input.nextInt();
 
-   for(int i = 0; i <= numberInput; i ++ ){
+   for(int muliple = 0; multiple <= numberInput; multiple ++ ){
       int product = numberInput * i ; 
       System.out.printf(" %d x %d = %d%n",numberInput, i, product);
       
