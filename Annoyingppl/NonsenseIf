@@ -1,0 +1,18 @@
+Initialize payment and discount
+Prompt user Enter the type of vehicle
+Collect the type 
+Store in variable vehicle
+A user to enter vehicles age
+Collect the vehicles age
+Store in variable noYears
+prompt user to enter no of consecutive use
+If its a car, its less Than 5years and return consecutively greater than or equals 2years
+ Discount = payment * 0.07
+else 5years and return consecutively less 2years
+ Discount = payment * 0.05
+If its a Truck, its greater Than 10years and return consecutively greater than or equals 2years
+ Discount = payment * 0.1
+else 5years and return consecutively less 2years
+ Discount = payment * 0.12
+
+print(discount)
