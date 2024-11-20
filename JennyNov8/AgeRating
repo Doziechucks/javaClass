@@ -1,0 +1,7 @@
+Ask user to input age
+Collect age from user 
+Store age in a variable userAge
+If age from 0 to 12 print child
+If age from 13 to 17 print teen
+If age from 18 to 64 print Adult
+if age above 65 print senior

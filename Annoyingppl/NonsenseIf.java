@@ -7,7 +7,7 @@ public class NonsenseIf{
       System.out.print("Enter the Vehicle type: ");
       String vehicle = input.nextLine();
 
-      System.out.print("Enter the the years for the car: ");
+      System.out.print("Enter the the years for the vehicle: ");
       int noYears = input.nextInt();
 
       System.out.print("Enter the the number of consecutive return years: ");
@@ -24,9 +24,9 @@ public class NonsenseIf{
       if(vehicle.equalsIgnoreCase("truck") && noYears > 10){
          discount = payment * 0.1;
          if (noRetun >= 2){
-            discount = payment * 0.07;}
+            discount = payment * 0.12;}
          else
-            discount = payment * 0.05; 
+            discount = payment * 0.1; 
          
            }
       System.out.print(discount);

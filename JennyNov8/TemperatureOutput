@@ -1,0 +1,6 @@
+Ask user to input temperature in degrees celcius
+Collect age from temperature from user 
+Store temperature in a variable environTemperature
+If environTemperatre < 10 print cold
+If environTemperature between 10 to 25 degrees print warm
+If environTemperature greater than 25 print hot
