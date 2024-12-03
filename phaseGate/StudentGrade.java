@@ -110,6 +110,12 @@ public class StudentGrade{
    int low = 100;
    int lowIndex = 0;
    int highIndex = 0;
+   int[] failed = new int[subjectNumber];
+   int[] highestOne = new int[subjectNumber];
+   int[] lowestTwo = new int[subjectNumber];
+   int failedSubject = 0;
+   int largestThree = 0;
+
    for(int number = 0; number < subjectNumber; number++){
       System.out.printf("subject %d%n", (number + 1));
       int[] highest = new int[studentNumber];
@@ -149,15 +155,26 @@ public class StudentGrade{
       System.out.printf("total is: %d%n", totalTwo);
       System.out.printf("average is: %g%n", averageOne);
       System.out.printf("number of passes: %d%n", passes);
-      System.out.printf("Number of fails is: %d%n", fails);
+      System.out.printf("Number of fails is: %d%n%n%n%n", fails);
+      failed[number] = fails;
+      highestOne[number] = large;
+      lowestTwo[number] = low;
       large = 0;
       low = 100;
       totalTwo = 0;
       passes = 0;
       fails = 0;
 		}
-      System.out.println("is subject subject is %d with failures %d.");
-      System.out.println("is easiest subject is %d with failures %d.");
+      
+      largestThree = failed[0];
+      for(int number = 0; number < subjectNumber; number++){
+         if (failed[number] > largestThree){
+            largestThree = failed[number];
+            failedSubject = number;
+         }
+	}
+      System.out.printf("the hardest is subject is %d with failures %d%n", (failedSubject + 1), largestThree);
+      System.out.println("the easiest subject is %d with failures %d.");
       System.out.println("overall highest score was scored by student %d in subject %d scoring %d");
       System.out.println("overall lowest score was scored by student %d in subject %d scoring %d"); 
       System.out.println("================================================================================\n");
@@ -165,7 +182,7 @@ public class StudentGrade{
       System.out.println("================================================================================\n");
       System.out.println("Best Graduating Student is: Student %d scoring %d%n");
       System.out.println("================================================================================\n\n");
-      System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
       System.out.println("Worst Graduating Student is: Student %d scoring %d%n");
       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
       System.out.println("================================================================================\n");
