@@ -100,53 +100,64 @@ public class StudentGrade{
    double averageOne = 0;
    int totalTwo = 0;
    int large = 0;
-   int low = 100;
    int largestOne = 0;
    int leastOne = 0;
-   int[] answers = new int[6]; 
+   int[] answers = new int[2]; 
    int check = 0; 
    int gradeOne = 0;
    int passes = 0;
    int fails = 0; 
-
+   int low = 100;
+   int lowIndex = 0;
+   int highIndex = 0;
    for(int number = 0; number < subjectNumber; number++){
       System.out.printf("subject %d%n", (number + 1));
       int[] highest = new int[studentNumber];
       int[] lowest = new int[studentNumber];
       int totals = 0;
-
+      
       for(gradeOne = 0; gradeOne < studentNumber; gradeOne++){
          highest[gradeOne] = subject[gradeOne][number];
          lowest[gradeOne] = subject[gradeOne][number];
         		} 
 	
-      for(check = 0; check < subjectNumber; check++){
-         if (highest[check] > answers[0]){
-            answers[0] = highest[check];
-            large = answers[0];
+      for(check = 0; check < studentNumber; check++){
+         if (highest[check] > large){
+            large = highest[check];
+            highIndex = check;
 	}
-         if (highest[check] < answers[1]) {
-            answers[1] = highest[check];
-            low = answers[1];
-                  }
+         
+         if (highest[check] < low) {
+            low = highest[check];
+            lowIndex = check;
+                              }
+
          totalTwo += highest[check];
-         averageOne = totalTwo / subjectNumber ;
+         averageOne = totalTwo / studentNumber;
          }
       for(int gradeTwo = 0; gradeTwo < studentNumber; gradeTwo++){	
          if(highest[gradeTwo] >= 50) passes += 1;
          else fails += 1;
 	}	
-        
-     System.out.printf("Highest scoring student is: Student %d scoring %d%n", (gradeOne + 1), large );
-     System.out.printf("lowest scoring student is: Student %d scoring %d%n", (gradeOne + 1), low );
-     System.out.printf("total is: %d%n", totalTwo);
-     System.out.printf("average is: %g%n", averageOne);
-     System.out.printf("number of passes: %d%n", passes);
-     System.out.printf("Number of fails is: %d%n", fails);
 
+
+
+      System.out.print(Arrays.toString(highest));
+      System.out.print(Arrays.toString(answers));
+      System.out.printf("Highest scoring student is: Student %d scoring %d%n", (highIndex + 1), large);
+      System.out.printf("lowest scoring student is: Student %d scoring %d%n", (lowIndex+ 1), low);
+      System.out.printf("total is: %d%n", totalTwo);
+      System.out.printf("average is: %g%n", averageOne);
+      System.out.printf("number of passes: %d%n", passes);
+      System.out.printf("Number of fails is: %d%n", fails);
+      large = 0;
+      low = 100;
+      totalTwo = 0;
 		}
-     System.out.print("is subject is subject ")
-
+      System.out.println("is subject subject is %d with failures %d.");
+      System.out.println("is easiest subject is %d with failures %d.");
+      System.out.println("is easiest subject is %d with failures %d.");
+     
 	}
 
 }
