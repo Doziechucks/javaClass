@@ -10,9 +10,8 @@ public class StudentGrade{
    System.out.print("How many subjects did these students offer: ");
    int subjectNumber = input.nextInt();
    
-   for(int number = 0; number < subjectNumber; number++){
-      int[] subject = new int[studentNumber]; 
-} 
+   int[][] subject = new int[studentNumber][subjectNumber];   
+   System.out.println(Arrays.deepToString(subject));
 
    String[] studentNo = new String[studentNumber];
    
@@ -22,6 +21,15 @@ public class StudentGrade{
 		}
    
    
+   for(int number = 0; number < studentNumber; number++){
+      for(int students = 0; students < subjectNumber; students++){
+         System.out.printf("Enter the score for student %d subject %d: ", (number + 1), (students + 1));
+         int subjectOne = input.nextInt();
+         subject[number][students] = subjectOne;
+      
+		}
 
+}
+   System.out.println(Arrays.deepToString(subject));
 	}
 }
