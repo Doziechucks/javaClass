@@ -15,6 +15,7 @@ public class StudentGrade{
 
    String[] studentNo = new String[studentNumber];
    
+   Float[] averages = new Float[studentNumber]
 
    for(int number = 0; number < studentNumber; number++){
       studentNo[number] = "student " + (number + 1) + "" ;
@@ -28,8 +29,31 @@ public class StudentGrade{
          subject[number][students] = subjectOne;
       
 		}
-
+   for(int number = 0; number < studentNumber; number++){
+      scoreAverage Arrays.average
 }
+   
+}
+   System.out.println("================================================================================");
+   System.out.print("STUDENT         ");
+
+   for(int number = 0; number < subjectNumber; number++){
+      System.out.printf("SUB %d   ", (number + 1));
+		}
+   
+   System.out.println("AVE    POS");
+   System.out.println("================================================================================");
+
+   for(int number = 0; number < studentNumber; number++){
+      for(int count = 0; count < 1; count++){ 
+         System.out.print(studentNo[number]);}
+   
+      for(int grade = 0; grade < subjectNumber; grade++){
+         System.out.print("       ");
+         System.out.print(subject[number][grade]);
+		}
+      System.out.println();
+    }
    System.out.println(Arrays.deepToString(subject));
 	}
 }
