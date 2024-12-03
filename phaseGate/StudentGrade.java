@@ -48,7 +48,7 @@ public class StudentGrade{
 	}
     for(int number = 0; number < studentNumber; number++){
        checker[number] = total[number];}
-    System.out.println(Arrays.toString(checker));
+
   
       int largest = 0;
    for(int numberOfTimes = 0; numberOfTimes < studentNumber; numberOfTimes++){
@@ -92,9 +92,52 @@ public class StudentGrade{
 		}
       System.out.println();
     }
-   System.out.println(Arrays.deepToString(subject));
+
    System.out.println("================================================================================\n\n");
    System.out.println("================================================================================");
 
+   System.out.println("SUBJECT SUMMARY");
+   double averageOne = 0;
+   int totalTwo = 0;
+   int large = 0;
+   int low = 0;
+   int largestOne = 0;
+   int leastOne = 0;
+   int[] answers = new int[6];   
+
+   for(int number = 0; number < subjectNumber; number++){
+      System.out.printf("subject %d%n", (number + 1));
+      int[] highest = new int[studentNumber];
+      int[] lowest = new int[studentNumber];
+      int totals = 0;
+
+      for(int grade = 0; grade < studentNumber; grade++){
+         highest[grade] = subject[number][grade];
+         lowest[grade] = subject[number][grade];
+        		} 
+	
+      for(int check = 0; check < subjectNumber; check++){
+         if (highest[check] > answers[0]){
+            answers[0] = highest[check];
+            large = answers[0];
+	}
+         if (highest[check] < answers[1]) {
+            answers[1] = highest[check];
+            low = answers[1];
+                  }
+         totalTwo += highest[check];
+         averageOne = totalTwo / subjectNumber ;
+         
+			}
+        
+     System.out.printf("Highest scoring student is: Student %d scoring %d: ", (largestOne + 1), large );
+     System.out.printf("Highest scoring student is: Student %d scoring %d: ", (largestOne + 1), low );
+     System.out.printf("total is: %d", totalTwo);
+     System.out.printf("average is: %g", averageOne);
+
+		}
+
 	}
 }
+
+   
