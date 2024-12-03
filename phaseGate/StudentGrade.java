@@ -105,7 +105,9 @@ public class StudentGrade{
    int leastOne = 0;
    int[] answers = new int[6]; 
    int check = 0; 
-   int gradeOne = 0; 
+   int gradeOne = 0;
+   int passes = 0;
+   int fails = 0; 
 
    for(int number = 0; number < subjectNumber; number++){
       System.out.printf("subject %d%n", (number + 1));
@@ -130,14 +132,20 @@ public class StudentGrade{
          totalTwo += highest[check];
          averageOne = totalTwo / subjectNumber ;
          }
-			
+      for(int gradeTwo = 0; gradeTwo < studentNumber; gradeTwo++){	
+         if(highest[gradeTwo] >= 50) passes += 1;
+         else fails += 1;
+	}	
         
      System.out.printf("Highest scoring student is: Student %d scoring %d%n", (gradeOne + 1), large );
      System.out.printf("lowest scoring student is: Student %d scoring %d%n", (gradeOne + 1), low );
      System.out.printf("total is: %d%n", totalTwo);
      System.out.printf("average is: %g%n", averageOne);
+     System.out.printf("number of passes: %d%n", passes);
+     System.out.printf("Number of fails is: %d%n", fails);
 
 		}
+     System.out.print("is subject is subject ")
 
 	}
 
