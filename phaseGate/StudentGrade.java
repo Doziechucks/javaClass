@@ -153,11 +153,27 @@ public class StudentGrade{
       large = 0;
       low = 100;
       totalTwo = 0;
+      passes = 0;
+      fails = 0;
 		}
       System.out.println("is subject subject is %d with failures %d.");
       System.out.println("is easiest subject is %d with failures %d.");
-      System.out.println("is easiest subject is %d with failures %d.");
-     
+      System.out.println("overall highest score was scored by student %d in subject %d scoring %d");
+      System.out.println("overall lowest score was scored by student %d in subject %d scoring %d"); 
+      System.out.println("================================================================================\n");
+      System.out.println("CLASS SUMMARY");
+      System.out.println("================================================================================\n");
+      System.out.println("Best Graduating Student is: Student %d scoring %d%n");
+      System.out.println("================================================================================\n\n");
+      System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+      System.out.println("Worst Graduating Student is: Student %d scoring %d%n");
+      System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+      System.out.println("================================================================================\n");
+      System.out.println("Class total is score is: %d%n");
+      System.out.println("Class average is score is: %d%n");
+      System.out.println("================================================================================\n");
+      
+       
 	}
 
 }
