@@ -15,7 +15,12 @@ public class StudentGrade{
 
    String[] studentNo = new String[studentNumber];
    
-   Float[] averages = new Float[studentNumber]
+   double[] averages = new double[studentNumber];
+   int checker[] = new int[studentNumber]
+
+   int[] position = new int[studentNumber]
+   
+   int[] total = new int[studentNumber];
 
    for(int number = 0; number < studentNumber; number++){
       studentNo[number] = "student " + (number + 1) + "" ;
@@ -29,11 +34,25 @@ public class StudentGrade{
          subject[number][students] = subjectOne;
       
 		}
+   }
+   double average = 0;
+   int summation = 0;
    for(int number = 0; number < studentNumber; number++){
-      scoreAverage Arrays.average
-}
+      for (int students = 0; students < subjectNumber; students++){
+         summation += subject[number][students];
+         average = summation / subjectNumber;
+		}
+   total[number] = summation; 
+   averages[number] = average;
+   summation = 0; 
+	}
    
-}
+      
+
+
+
+   
+
    System.out.println("================================================================================");
    System.out.print("STUDENT         ");
 
@@ -41,7 +60,7 @@ public class StudentGrade{
       System.out.printf("SUB %d   ", (number + 1));
 		}
    
-   System.out.println("AVE    POS");
+   System.out.println("TOT   AVE    POS");
    System.out.println("================================================================================");
 
    for(int number = 0; number < studentNumber; number++){
@@ -52,8 +71,17 @@ public class StudentGrade{
          System.out.print("       ");
          System.out.print(subject[number][grade]);
 		}
+      for(int count = 0; count < 1; count++){ 
+         System.out.print("     ");
+         System.out.print(total[number]);
+         System.out.print("       ");
+         System.out.print(averages[number]);         
+		}
       System.out.println();
     }
    System.out.println(Arrays.deepToString(subject));
+   System.out.println("================================================================================\n\n");
+   System.out.println("================================================================================");
+
 	}
 }
