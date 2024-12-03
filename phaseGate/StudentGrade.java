@@ -16,9 +16,9 @@ public class StudentGrade{
    String[] studentNo = new String[studentNumber];
    
    double[] averages = new double[studentNumber];
-   int checker[] = new int[studentNumber]
+   int checker[] = new int[studentNumber];
 
-   int[] position = new int[studentNumber]
+   int[] position = new int[studentNumber];
    
    int[] total = new int[studentNumber];
 
@@ -46,12 +46,23 @@ public class StudentGrade{
    averages[number] = average;
    summation = 0; 
 	}
-   
-      
+    for(int number = 0; number < studentNumber; number++){
+       checker[number] = total[number];}
+    System.out.println(Arrays.toString(checker));
+  
+      int largest = 0;
+   for(int numberOfTimes = 0; numberOfTimes < studentNumber; numberOfTimes++){
+      for(int number = 0; number < studentNumber; number++){
+         if (checker[number] > checker[largest]){ 
+            largest = number; }    
+            
 
+	}	   
+         position[largest] = (numberOfTimes + 1);
 
-
-   
+         checker[largest] = 0 - numberOfTimes;       
+}
+    
 
    System.out.println("================================================================================");
    System.out.print("STUDENT         ");
@@ -60,7 +71,7 @@ public class StudentGrade{
       System.out.printf("SUB %d   ", (number + 1));
 		}
    
-   System.out.println("TOT   AVE    POS");
+   System.out.println("TOT        AVE       POS");
    System.out.println("================================================================================");
 
    for(int number = 0; number < studentNumber; number++){
@@ -75,7 +86,9 @@ public class StudentGrade{
          System.out.print("     ");
          System.out.print(total[number]);
          System.out.print("       ");
-         System.out.print(averages[number]);         
+         System.out.print(averages[number]);   
+         System.out.print("       ");
+         System.out.print(position[number]);      
 		}
       System.out.println();
     }
