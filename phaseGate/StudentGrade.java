@@ -103,7 +103,8 @@ public class StudentGrade{
    int low = 0;
    int largestOne = 0;
    int leastOne = 0;
-   int[] answers = new int[6];   
+   int[] answers = new int[6]; 
+   int check = 0;  
 
    for(int number = 0; number < subjectNumber; number++){
       System.out.printf("subject %d%n", (number + 1));
@@ -112,11 +113,11 @@ public class StudentGrade{
       int totals = 0;
 
       for(int grade = 0; grade < studentNumber; grade++){
-         highest[grade] = subject[number][grade];
-         lowest[grade] = subject[number][grade];
+         highest[grade] = subject[grade][number];
+         lowest[grade] = subject[grade][number];
         		} 
 	
-      for(int check = 0; check < subjectNumber; check++){
+      for(check = 0; check < subjectNumber; check++){
          if (highest[check] > answers[0]){
             answers[0] = highest[check];
             large = answers[0];
@@ -127,17 +128,17 @@ public class StudentGrade{
                   }
          totalTwo += highest[check];
          averageOne = totalTwo / subjectNumber ;
-         
-			}
+         }
+			
         
-     System.out.printf("Highest scoring student is: Student %d scoring %d: ", (largestOne + 1), large );
-     System.out.printf("Highest scoring student is: Student %d scoring %d: ", (largestOne + 1), low );
-     System.out.printf("total is: %d", totalTwo);
-     System.out.printf("average is: %g", averageOne);
+     System.out.printf("Highest scoring student is: Student %d scoring %d%n", (check + 1), large );
+     System.out.printf("lowest scoring student is: Student %d scoring %d%n ", (check + 1), low );
+     System.out.printf("total is: %d%n", totalTwo);
+     System.out.printf("average is: %g%n", averageOne);
 
 		}
 
 	}
-}
 
+}
    
