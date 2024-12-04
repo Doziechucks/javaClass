@@ -1,3 +1,4 @@
+import java.util.Arrays;
 public class pixelQuantitizer{
    public static void main(String[] args){
    int[] pixels = {10, 15, 25, 30, 40, 36, 45, 44, 46, 56, 78, 89, 118, 156, 155, 176, 177, 200, 188, 199};
@@ -35,7 +36,7 @@ public class pixelQuantitizer{
              }
          
   } 
-       System.out.println(pixels);
+       System.out.println(Arrays.toString(pixels));
 }
 
 }

@@ -63,3 +63,10 @@ Add 1 to zeroNum
 If Number < 0 
 Add 1 to negNum
 Print the value of posNum, negNum and zeroNum
+
+
+
+
+java -jar junit-platform-console-standalone-1.11.3.jar --classpath . --scan-classpath --include-classname Testclass
+
+ javac -cp "junit-platform-console-standalone-1.11.3.jar" TestPanGram.java PanGram.java
