@@ -13,6 +13,8 @@ public class StudentGrade{
    int[][] subject = new int[studentNumber][subjectNumber];   
    System.out.println(Arrays.deepToString(subject));
 
+   
+
    String[] studentNo = new String[studentNumber];
    
    double[] averages = new double[studentNumber];
@@ -35,6 +37,7 @@ public class StudentGrade{
       
 		}
    }
+   
    double average = 0;
    int summation = 0;
    for(int number = 0; number < studentNumber; number++){
@@ -46,7 +49,7 @@ public class StudentGrade{
    averages[number] = average;
    summation = 0; 
 	}
-    for(int number = 0; number < studentNumber; number++){
+   for(int number = 0; number < studentNumber; number++){
        checker[number] = total[number];}
 
   
@@ -115,16 +118,21 @@ public class StudentGrade{
    int[] lowestTwo = new int[subjectNumber];
    int failedSubject = 0;
    int largestThree = 0;
+   int passedSubject = 0;
+   int largestTwo = 0;
+   int numberSummary = 0;
+   int largestFour = 0;
+   int leastFour = 100;
 
-   for(int number = 0; number < subjectNumber; number++){
-      System.out.printf("subject %d%n", (number + 1));
+   for(numberSummary = 0; numberSummary < subjectNumber; numberSummary++){
+      System.out.printf("subject %d%n", (numberSummary + 1));
       int[] highest = new int[studentNumber];
       int[] lowest = new int[studentNumber];
       int totals = 0;
       
       for(gradeOne = 0; gradeOne < studentNumber; gradeOne++){
-         highest[gradeOne] = subject[gradeOne][number];
-         lowest[gradeOne] = subject[gradeOne][number];
+         highest[gradeOne] = subject[gradeOne][numberSummary];
+         lowest[gradeOne] = subject[gradeOne][numberSummary];
         		} 
 	
       for(check = 0; check < studentNumber; check++){
@@ -145,7 +153,7 @@ public class StudentGrade{
          if(highest[gradeTwo] >= 50) passes += 1;
          else fails += 1;
 	}	
-
+      
 
 
       System.out.print(Arrays.toString(highest));
@@ -156,38 +164,95 @@ public class StudentGrade{
       System.out.printf("average is: %g%n", averageOne);
       System.out.printf("number of passes: %d%n", passes);
       System.out.printf("Number of fails is: %d%n%n%n%n", fails);
-      failed[number] = fails;
-      highestOne[number] = large;
-      lowestTwo[number] = low;
+      failed[numberSummary] = fails;
+      highestOne[numberSummary] = large;
+      lowestTwo[numberSummary] = low;
       large = 0;
       low = 100;
       totalTwo = 0;
       passes = 0;
       fails = 0;
 		}
-      
+      largestTwo = failed[0];
       largestThree = failed[0];
       for(int number = 0; number < subjectNumber; number++){
          if (failed[number] > largestThree){
             largestThree = failed[number];
             failedSubject = number;
          }
+         if (failed[number] < largestTwo){
+            largestTwo = failed[number];
+            passedSubject = number;
+		}
 	}
-      System.out.printf("the hardest is subject is %d with failures %d%n", (failedSubject + 1), largestThree);
-      System.out.println("the easiest subject is %d with failures %d.");
-      System.out.println("overall highest score was scored by student %d in subject %d scoring %d");
-      System.out.println("overall lowest score was scored by student %d in subject %d scoring %d"); 
+      largestFour = 0;
+      leastFour = 100;
+      int indexFour = 0;
+      int indexThree = 0;
+      for(int number = 0; number < subjectNumber; number++){
+         if(highestOne[number] > largestFour) {
+            largestFour = highestOne[number];
+            indexThree = number;
+		}
+         if(lowestTwo[number] < leastFour){
+            leastFour = lowestTwo[number];
+            indexFour = number;
+		}                       
+
+	}
+      int studentPosition = 0;
+      int studentPositionLow = 0;
+      int totalFive = 0;
+      int highThree = 0;
+      int studentBest = 0;
+      int worstStudent = 0;
+      int badThree = 100 * subjectNumber;
+      int [] bestGuy = new int[studentNumber];
+      for(int number = 0; number < studentNumber; number++){
+         int[] best = new int[subjectNumber];
+         for(int grade = 0; grade < subjectNumber; grade++ ){
+            if (largestFour == subject[number][grade]) studentPosition = number;
+            if (leastFour== subject[number][grade]) studentPositionLow = number;
+            best[grade] = subject[number][grade];
+	 	}
+         for(int count = 0; count < subjectNumber; count++ ){
+            totalFive += best[count];}
+         bestGuy[number] = totalFive;
+         totalFive = 0;
+	}
+      for(int number = 0; number < studentNumber; number++){
+         if (bestGuy[number] > highThree) {
+            highThree = bestGuy[number];
+            studentBest = number;
+		}
+         if (bestGuy[number] < badThree){
+             badThree = bestGuy[number];
+             worstStudent = number;
+		}
+}
+      int overallTotal = 0;
+      for(int number = 0; number < studentNumber; number++){
+         for(int students = 0; students < subjectNumber; students++){  
+             overallTotal += subject[number][students];
+	}
+}    
+      double overallAverage = overallTotal / studentNumber;
+
+      System.out.printf("the hardest subject is subject %d with failures %d%n", (failedSubject + 1), largestThree);
+      System.out.printf("the easiest subject is subject %d with failures %d%n", (passedSubject + 1), largestTwo);
+      System.out.printf("overall highest score was scored by student %d in subject %d scoring %d",(studentPosition + 1), (indexThree + 1), largestFour);
+      System.out.printf("overall lowest score was scored by student %d in subject %d scoring %d",(studentPositionLow + 1), (indexFour + 1), leastFour ); 
       System.out.println("================================================================================\n");
       System.out.println("CLASS SUMMARY");
       System.out.println("================================================================================\n");
-      System.out.println("Best Graduating Student is: Student %d scoring %d%n");
+      System.out.printf("Best Graduating Student is: Student %d scoring %d%n",(studentBest + 1), highThree);
       System.out.println("================================================================================\n\n");
       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
-      System.out.println("Worst Graduating Student is: Student %d scoring %d%n");
+      System.out.printf("Worst Graduating Student is: Student %d scoring %d%n", (worstStudent + 1), badThree);
       System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
       System.out.println("================================================================================\n");
-      System.out.println("Class total is score is: %d%n");
-      System.out.println("Class average is score is: %d%n");
+      System.out.printf("Class total is score is: %d%n", overallTotal);
+      System.out.printf("Class average is score is: %g%n", overallAverage);
       System.out.println("================================================================================\n");
       
        
