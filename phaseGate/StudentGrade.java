@@ -241,7 +241,7 @@ public class StudentGrade{
       System.out.printf("the hardest subject is subject %d with failures %d%n", (failedSubject + 1), largestThree);
       System.out.printf("the easiest subject is subject %d with failures %d%n", (passedSubject + 1), largestTwo);
       System.out.printf("overall highest score was scored by student %d in subject %d scoring %d",(studentPosition + 1), (indexThree + 1), largestFour);
-      System.out.printf("overall lowest score was scored by student %d in subject %d scoring %d",(studentPositionLow + 1), (indexFour + 1), leastFour ); 
+      System.out.printf("overall lowest score was scored by student %d in subject %d scoring %d%n",(studentPositionLow + 1), (indexFour + 1), leastFour ); 
       System.out.println("================================================================================\n");
       System.out.println("CLASS SUMMARY");
       System.out.println("================================================================================\n");
