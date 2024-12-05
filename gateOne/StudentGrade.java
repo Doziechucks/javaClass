@@ -6,12 +6,21 @@ public class StudentGrade{
 
    System.out.print("How many Students do you have in your class: ");
    int studentNumber = input.nextInt();
-
+   while (studentNumber < 1 || studentNumber > 100){
+      System.out.println("Invalid Student number");
+      System.out.print("How many Students do you have in your class: ");
+      studentNumber = input.nextInt();      
+	}
    System.out.print("How many subjects did these students offer: ");
    int subjectNumber = input.nextInt();
+   while (subjectNumber < 1 || subjectNumber > 100){
+      System.out.println("Invalid subject Number");
+      System.out.print("How many subjects did these students offer: ");
+      subjectNumber = input.nextInt(); 
+	}
    
    int[][] subject = new int[studentNumber][subjectNumber];   
-   System.out.println(Arrays.deepToString(subject));
+
 
    
 
@@ -33,6 +42,11 @@ public class StudentGrade{
       for(int students = 0; students < subjectNumber; students++){
          System.out.printf("Enter the score for student %d subject %d: ", (number + 1), (students + 1));
          int subjectOne = input.nextInt();
+         while (subjectOne < 1 || subjectOne > 100){
+            System.out.println("Invalid Score");
+            System.out.printf("Enter the score for student %d subject %d: ", (number + 1), (students + 1)); 
+            subjectOne = input.nextInt();
+	} 
          subject[number][students] = subjectOne;
       
 		}
