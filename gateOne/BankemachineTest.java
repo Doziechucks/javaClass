@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BankeMachineTest{
@@ -14,6 +15,8 @@ public class BankeMachineTest{
 
    String fullName = "" + firstName + " " + secondName + "";
    machine.setName(fullName);
+
+   ArrayList<String> names
 
    System.out.printf("name is: %s%n", machine.getName());
 	}

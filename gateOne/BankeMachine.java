@@ -1,4 +1,3 @@
-import java.util
 public class BankeMachine{
    private String name;
 
@@ -7,8 +6,8 @@ public class BankeMachine{
 }
    
    public String getName(){
-      return name;
-     	}
+      return this.name += " " + name;
+     }
 
 
 }
