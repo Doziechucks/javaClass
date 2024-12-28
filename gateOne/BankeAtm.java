@@ -26,8 +26,18 @@ public class BankeAtm{
          
  
          else if(exitGuy == 2){
-              createAccount();
-         	}
+            if(logIn() == checker){
+               System.out.printf("Welcome: %s%n", names.get(checker));
+               passWords.remove(checker);
+               accountNumbers.remove(checker);
+               names.remove(checker);
+               System.out.printf("Take your left over of %g%n", balances.get(checker));
+               balances.remove(checker);
+		}
+            else returnMainMenu();
+	}
+              
+         	
  
          else if(exitGuy == 3){ 
             int number = 0;
@@ -38,7 +48,8 @@ public class BankeAtm{
             for(number = 0; number < accountNumbers.size(); number++) {
                if(depositCheck.equals(accountNumbers.get(number))){
                   indexCheck = number;
-                  System.out.print(names.get(indexCheck));
+                  System.out.print("account name is: ");
+                  System.out.println(names.get(indexCheck));
 			} 
 		}
 
@@ -47,7 +58,7 @@ public class BankeAtm{
             depositCheck = input.next(); 
             if(depositCheck.equals('0')) returnMainMenu();
             for(number = 0; number < accountNumbers.size(); number++) {
-               if ( depositCheck.equals( accountNumbers.get(number) ) ) {
+               if (depositCheck.equals( accountNumbers.get(number) ) ) {
                   indexCheck = number;
             		}
 		}  
@@ -66,8 +77,8 @@ public class BankeAtm{
 		
             
           else if (exitGuy == 4){
-             if(logIn() == -1) returnMainMenu();
-             else if(logIn() == checker){
+             if(logIn() == checker){
+                System.out.printf("Welcome: %s%n", names.get(checker));
 		System.out.print("How much do you want to withdraw: ");
                 double withdrawal = input.nextInt();
                 if (withdrawal > 0 && withdrawal < balances.get(checker)){
@@ -77,14 +88,77 @@ public class BankeAtm{
                 else System.out.print("Invalid amount");
 				   
              			}
+               else returnMainMenu();
+
 		}
           else if (exitGuy == 5){
-	     if(logIn() == -1) returnMainMenu();
-             else if(logIn() == checker){
+	     if(logIn() == checker){
+                System.out.printf("Welcome: %s%n", names.get(checker));
                 System.out.printf("your account balance is: %g%n%n", balances.get(checker));
 			}
+             else returnMainMenu();
+	  	}
+
+          else if (exitGuy == 6){
+             if(logIn() == checker){
+                System.out.printf("Welcome: %s%n", names.get(checker));
+                int number = 0;
+                int indexCheck = -1;
+                System.out.print(accountNumbers);
+                System.out.print("Enter account number you are Transferring to: ");
+                String depositCheck = input.next();
+                for(number = 0; number < accountNumbers.size(); number++) {
+                   if(depositCheck.equals(accountNumbers.get(number))){
+                      indexCheck = number;
+                      
+		 	} 
+		}
+             while (indexCheck == -1){
+                System.out.print("Invalid account number, enter account number you are depositing to or -2 to quit: "); 
+                depositCheck = input.next(); 
+                if(depositCheck.equals('-2')) returnMainMenu();
+                for(number = 0; number < accountNumbers.size(); number++) {
+                   if ( depositCheck.equals( accountNumbers.get(number) ) ) {
+                      indexCheck = number;
+             		}
+ 		}  
+ 	}	
+             if(indexCheck == -2) returnMainMenu();
+             else {
+                System.out.print("Account number of ");
+                System.out.println(names.get(indexCheck));
+                System.out.print(" how much do you want to Transfer: ");
+                double moneyInput = input.nextDouble();
+                if (moneyInput > 0 && moneyInput < balances.get(checker)){
+                   balances.set(indexCheck, balances.get(indexCheck) + moneyInput);
+                   balances.set(checker, balances.get(checker) - moneyInput);
+                   System.out.printf("Transfer successful, your new balance is: %g%n%n%n: ", balances.get(checker)); 
+					}
+                else System.out.println("Transfer failed due to an invalid input");               
+	 				
+	 			}
+ 
+ 
+			}
+             else returnMainMenu();
+		}
+
+          else if (exitGuy == 7){
+             if(logIn() == checker){
+                 System.out.print("Enter a new 4 digit password: ");
+                 String newPassword = input.next();
+                 while(newPassword.length() != 4){
+                    System.out.print("Choose a 4 digit password");
+                       newPassword = input.next();
+				}     
+                 passWords.set(checker, newPassword);
+                 System.out.print("pin change Successful");
+			}             
+	     else returnMainMenu();
 		}
 	}	
+          
+          
 }     
 
       public static void returnMainMenu(){
@@ -146,9 +220,9 @@ public class BankeAtm{
 		  }
 		} 
          while(checker == -1) {
-            System.out.print("Invalid account number, check and try again(or enter 0 to quit)");
+            System.out.print("Invalid account number, check and try again(or enter 0 to quit): ");
             accountNumberCheck = input.next();
-            if(accountNumberCheck == "0") returnMainMenu();
+            if(accountNumberCheck.equals("0")) return -1;
             for(int number = 0; number < accountNumbers.size(); number++){
                if (accountNumbers.get(number).equals(accountNumberCheck)){
                   checker = number;  
