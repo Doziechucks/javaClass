@@ -116,7 +116,7 @@ public class BankeAtm{
              while (indexCheck == -1){
                 System.out.print("Invalid account number, enter account number you are depositing to or -2 to quit: "); 
                 depositCheck = input.next(); 
-                if(depositCheck.equals('-2')) returnMainMenu();
+                if(depositCheck.equals("-2")) returnMainMenu();
                 for(number = 0; number < accountNumbers.size(); number++) {
                    if ( depositCheck.equals( accountNumbers.get(number) ) ) {
                       indexCheck = number;
@@ -211,7 +211,7 @@ public class BankeAtm{
 
       public static int logIn(){
 
-         System.out.print("Enter you Account Number: ");
+         System.out.print("Enter your Account Number: ");
          String accountNumberCheck = input.next();
          int checker = -1;
          for(int number = 0; number < accountNumbers.size(); number++){
