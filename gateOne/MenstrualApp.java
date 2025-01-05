@@ -11,7 +11,7 @@ public class MenstrualApp{
       Scanner input = new Scanner(System.in);
       Date currentDate = new Date();
       Calendar calendar = Calendar.getInstance();
-      SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/YY");
+      SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 
       String[] dateStrings = new String[3];
       int[] dateFigures = new int[3];
@@ -51,7 +51,7 @@ public class MenstrualApp{
          else if(dateFigures[0] == 6 && dateFigures[1] > 30) System.out.println("Invalid Input");
          else if(dateFigures[0] == 11 && dateFigures[1] > 30) System.out.println("Invalid Input");
          else if(dateFigures[0] == 2 && dateFigures[2] / 4 == 0 && dateFigures[1] > 29) System.out.println("Invalid Input");
-         else if(dateFigures[2] < 1 || dateFigures[2] > 99) System.out.println("Invalid Input");      
+         else if(dateFigures[2] < 1900 || dateFigures[2] > 2050) System.out.println("Invalid Input");      
          else checker = 2;
 		}
          while(checker == 1) ;
@@ -76,11 +76,17 @@ public class MenstrualApp{
             System.out.println("Invalid Date format");
 	}
 
+         
          LocalDate newDay = LocalDate.now().plusDays(28 - dayDiff);  
-  
-	 System.out.println("Your next flow day is on " + newDay + "");	
+         LocalDate ovulation = LocalDate.now().plusDays(14 - dayDiff);
+         LocalDate safe = LocalDate.now().plusDays(20 - dayDiff);
+            
 
-      System.out.println(Arrays.toString(dateStrings));
+	 System.out.println("Your next flow day is on " + newDay + "");	
+         System.out.println("Your ovulation day is  " + ovulation + "");
+         System.out.println("Your safe periods are between  " + safe + " to " + newDay + "");	
+
+     
       
 
       
