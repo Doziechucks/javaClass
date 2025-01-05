@@ -82,11 +82,11 @@ public class MenstrualApp{
          LocalDate safe = LocalDate.now().plusDays(20 - dayDiff);
             
 
-	 System.out.println("Your next flow day is on " + newDay + "");	
-         System.out.println("Your ovulation day is  " + ovulation + "");
+	 System.out.println("Your next flow day should be " + newDay + "");	
+         System.out.println("Your ovulation day should be  " + ovulation + "");
          System.out.println("Your safe periods are between  " + safe + " to " + newDay + "");	
 
-     
+         if(dayDiff > 30) System.out.print("you need to see a doctor");
       
 
       
