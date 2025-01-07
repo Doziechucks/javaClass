@@ -13,7 +13,10 @@ public class TicTacToe{
          values[number][index] = " ";
 		}
 	}
-   for(int number = 0; number < 9; number++){
+      int number = 0;
+      int game = 0;
+
+      while(number < 9 && game == 0){
       box();
       System.out.print("Enter the row: ");
       int rowInput = input.nextInt();
@@ -33,6 +36,7 @@ public class TicTacToe{
             number = number - 1;
 			}
          else values[rowInput - 1][columnInput - 1] = "X";
+         
          }
    		
       else {
@@ -41,14 +45,31 @@ public class TicTacToe{
             number = number - 1;
 			}
          else values[rowInput - 1][columnInput - 1] = "O";
-         
-   		}
-	}   
+            }
+      if(values[0][0].equals(values[0][1]) && values[0][0].equals(values[0][2]) && !(values[0][0].equals(" "))) game = 1;
+      else if(values[1][0].equals(values[1][1]) && values[1][0].equals(values[1][2]) && !(values[1][0].equals(" "))) game = 1;
+      else if(values[2][0].equals(values[2][1]) && values[2][0].equals(values[2][2]) && !(values[2][0].equals(" "))) game = 1;
+      else if(values[0][0].equals(values[1][0]) && values[0][0].equals(values[2][0]) && !(values[0][0].equals(" "))) game = 1;
+      else if(values[1][0].equals(values[1][1]) && values[1][0].equals(values[1][2]) && !(values[1][0].equals(" "))) game = 1;
+      else if(values[2][0].equals(values[2][1]) && values[2][0].equals(values[2][2]) && !(values[2][0].equals(" "))) game = 1;
+      else if(values[0][0].equals(values[1][1]) && values[0][0].equals(values[2][2]) && !(values[0][0].equals(" "))) game = 1;
+      else if(values[2][0].equals(values[1][1]) && values[1][2].equals(values[0][2]) && !(values[2][0].equals(" "))) game = 1;
 
-   
+      
+
+      if(game == 1 && number % 2 == 0) System.out.print("Player One is the winner"); 
+      else if(game == 1 && number % 2 == 1) System.out.print("Player Two is the winner");
+      else if(game == 0 && number == 8) System.out.print("its a draw");
+     
+      number = number + 1;
+       
+      System.out.print(game);
+	}
+      box();
 }
    public static void box(){
    System.out.printf("""
+    \n
         col1 col2 col3
        -------------
    row1| %S | %S | %S |
