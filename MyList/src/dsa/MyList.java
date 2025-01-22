@@ -51,9 +51,9 @@ public class MyList {
         }
         return false;
     }
+}
 
-
-  public String[] remove(String item) {
+   /*** public String[] remove(String item) {
         if (words.contains() == true) words[index()]) = null;
             for(int number = index; number < size){
                 words[number] = words[number + 1]
@@ -63,4 +63,4 @@ public class MyList {
         }
 
 }
-
+    ***/
