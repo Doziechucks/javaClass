@@ -42,14 +42,23 @@ public class MyListTest {
         assertTrue(myList.contains("mango"));
     }
 
- /***   @Test
+    @Test
+    public void test_ifIndexReturnWorking(){
+        myList.add("mango");
+        myList.add("Orange");
+        myList.add("Apple");
+        assertTrue(1 == myList.index("Orange"));
+    }
+
+    @Test
     public void test_toRemoveElement(){
         myList.add("mango");
         myList.add("Orange");
         myList.add("Apple");
+        myList.add("Banana");
         myList.remove("Orange");
-        assertTrue(myList.toString() == "[\"mango\", \"Apple\"]");
+        assertEquals(myList.toString(),"[\"mango\", \"Apple\", \"Banana\"]");
     }
-***/
+
 
 }

@@ -1,9 +1,10 @@
 package dsa;
 import java.lang.StringBuilder;
 public class MyList {
+
     private int size;
-    private int capacity;
-    private String[] words = new String[3];
+    private int capacity = 3;
+    private String[] words = new String[capacity];
 
     public String[] add(String word) {
         words[size++] = word;
@@ -13,11 +14,10 @@ public class MyList {
     }
 
     public String[] increaseCapacity(int size) {
-        String[] elements = new String[size * 2];
-        for (int number = 0; number < size; number++) {
-            elements[number] = words[number];
-        }
+        String[] elements = new String[capacity * 2];
+        System.arraycopy(words, 0, elements, 0, size);
         words = elements;
+        capacity = words.length;
         return words;
     }
 
@@ -34,10 +34,13 @@ public class MyList {
         sb.append("[");
         sb.append("\"");
         for (int number = 0; number < size; number++) {
-            if (number < size) {
+            if (number < size - 1) {
                 sb.append(words[number]);
                 sb.append("\", \"");
-            } else sb.append(words[number]);
+            } else {
+                sb.append(words[number]);
+                sb.append("\"");
+            }
         }
         sb.append("]");
 
@@ -47,20 +50,33 @@ public class MyList {
     public boolean contains(String word) {
         for (int number = 0; number < size; number++) {
             if (word.equals(words[number])) return true;
-            else return false;
+
         }
         return false;
     }
-}
 
-   /*** public String[] remove(String item) {
-        if (words.contains() == true) words[index()]) = null;
-            for(int number = index; number < size){
-                words[number] = words[number + 1]
-            }
+    public int index(String item) {
 
-        return words;
+        if(contains(item) == true){
+            for(int number = 0; number < size; number++) if(words[number].equals(item)) return number;
+
         }
 
+    return 0;
+    }
+
+
+    public String[] remove(String item) {
+        int number = 0;
+        if (contains(item) == true) {
+            for (number = index(item); number < size; number++) {
+                words[number] = words[number + 1];
+            }
+            words[number + 1] = null;
+            size--;
+        }
+        return words;
+    }
+
 }
-    ***/
+
