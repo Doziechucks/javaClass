@@ -21,9 +21,6 @@ public class MyList {
         return words;
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
 
     public int size() {
         return size;
@@ -57,7 +54,7 @@ public class MyList {
 
     public int index(String item) {
 
-        if(contains(item) == true){
+        if(contains(item)){
             for(int number = 0; number < size; number++) if(words[number].equals(item)) return number;
 
         }
@@ -67,8 +64,8 @@ public class MyList {
 
 
     public String[] remove(String item) {
-        int number = 0;
-        if (contains(item) == true) {
+        int number ;
+        if (contains(item)) {
             for (number = index(item); number < size; number++) {
                 words[number] = words[number + 1];
             }
