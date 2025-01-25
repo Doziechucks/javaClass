@@ -6,10 +6,13 @@ public class MyList {
     private int capacity = 3;
     private String[] words = new String[capacity];
 
-    public String[] add(String word) {
+    public void add(String word) {
         words[size++] = word;
         if (size == capacity) increaseCapacity(size);
 
+    }
+
+    public String[] getList(){
         return words;
     }
 
@@ -29,12 +32,13 @@ public class MyList {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        sb.append("\"");
         for (int number = 0; number < size; number++) {
             if (number < size - 1) {
+                sb.append("\"");
                 sb.append(words[number]);
-                sb.append("\", \"");
+                sb.append("\", ");
             } else {
+                sb.append("\"");
                 sb.append(words[number]);
                 sb.append("\"");
             }

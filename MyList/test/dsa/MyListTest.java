@@ -60,5 +60,17 @@ public class MyListTest {
         assertEquals("[\"mango\", \"Apple\", \"Banana\"]", myList.toString());
     }
 
+    @Test
+    public void test_toRemoveElementMoreThanOneElement() {
+        myList.add("mango");
+        myList.add("Orange");
+        myList.add("Apple");
+        myList.add("Banana");
+        myList.remove("Orange");
+        myList.remove("Apple");
+        assertEquals("[\"mango\", \"Banana\"]", myList.toString());
+
+    }
 
 }
+

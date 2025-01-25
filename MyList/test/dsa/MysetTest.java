@@ -31,7 +31,7 @@ public class MysetTest {
     public void test_ifelementIsAdded(){
         mySet.add("man");
         mySet.add("woman");
-        String expected = "[\"man\", \"woman\"]";
+        String expected = "{\"man\", \"woman\"}";
         String actual = mySet.toString();
         assertEquals(expected, actual);
 
@@ -42,7 +42,7 @@ public class MysetTest {
         mySet.add("man");
         mySet.add("man");
         mySet.add("woman");
-        String expected = "[\"man\", \"woman\"]";
+        String expected = "{\"man\", \"woman\"}";
         String actual = mySet.toString();
         assertEquals(expected, actual);
 
@@ -54,7 +54,7 @@ public class MysetTest {
         mySet.add("Apple");
         mySet.add("Banana");
         mySet.remove("Orange");
-        assertEquals("[\"mango\", \"Apple\", \"Banana\"]", mySet.toString());
+        assertEquals("{\"mango\", \"Apple\", \"Banana\"}", mySet.toString());
 
 
     }
