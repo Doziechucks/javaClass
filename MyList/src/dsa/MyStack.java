@@ -1,30 +1,22 @@
 package dsa;
-import java.lang.StringBuilder;
-public class MyQueue {
 
+public class MyStack {
     MyList myList = new MyList();
-
     private int size = 0;
 
-
-
     public void add(String item){
-        if (size > 0) {
-            if (myList.getList()[size] == "null") myList.getList()[size] = item;
-            else myList.add(item);
-        }
-        else myList.add(item);
-        this.size = myList.size();
+        myList.add(item);
+        size++;
     }
+
 
     public int size() {
-        return myList.size();
-
+        return size;
     }
 
-    public String toString(){
+    public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("(");
+        sb.append("[");
         for (int number = 0; number < size; number++) {
             if (number < size - 1) {
                 sb.append("\"");
@@ -36,17 +28,11 @@ public class MyQueue {
                 sb.append("\"");
             }
         }
-        sb.append(")");
+        sb.append("]");
         return sb.toString();
     }
 
     public void remove() {
-        for (int number = 0; number < size - 1; number++) {
-            myList.getList()[number] = myList.getList()[number + 1];
-        }
-        myList.getList()[size-1] = "null";
         size--;
     }
-
-
 }
