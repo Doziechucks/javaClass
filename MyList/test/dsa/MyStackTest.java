@@ -79,8 +79,9 @@ public class MyStackTest {
         myStack.add("man");
         myStack.remove();
         myStack.add("girl");
+        myStack.add("hen");
         String actual = myStack.toString();
-        String expected = "[\"girl\"]";
+        String expected = "[\"girl\", \"hen\"]";
         assertEquals(expected, actual);
 
     }
@@ -93,6 +94,11 @@ public class MyStackTest {
         assertTrue(myStack.contains("girl"));
 
 
-
     }
+    @Test
+    public void test_remove(){
+        myStack.remove();
+    }
+
+
 }

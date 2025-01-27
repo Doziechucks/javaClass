@@ -52,8 +52,12 @@ public class MyStack {
     }
 
     public void remove() {
-        myList.getList()[size - 1] = "null";
-        size--;
+        if(size == 0) size = 0;
+
+        else {
+            myList.getList()[size - 1] = "null";
+            size--;
+        }
     }
 
     public boolean contains(String item) {

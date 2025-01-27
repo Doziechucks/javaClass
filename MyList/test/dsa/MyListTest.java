@@ -68,6 +68,7 @@ public class MyListTest {
         myList.add("Banana");
         myList.remove("Orange");
         myList.remove("Apple");
+        assertEquals(2,myList.size());
         assertEquals("[\"mango\", \"Banana\"]", myList.toString());
 
     }

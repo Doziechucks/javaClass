@@ -8,6 +8,7 @@ public class Myset {
 
     private int size = 0;
 
+
     public void add(String value) {
         if (myList.contains(value) == false) {
             myList.add(value);
@@ -40,5 +41,6 @@ public class Myset {
         myList.remove(item);
         this.size = myList.size();
     }
+
 
 }
