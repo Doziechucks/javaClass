@@ -3,6 +3,7 @@ package dsa;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MyStackTest {
     private MyStack myStack;
@@ -61,4 +62,37 @@ public class MyStackTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void test_ifaRemoveAddAndRemoveCanBeDone(){
+        myStack.add("man");
+        myStack.add("woman");
+        myStack.remove();
+        myStack.add("girl");
+        myStack.remove();
+        String actual = myStack.toString();
+        String expected = "[\"man\"]";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_ifaRemoveRemoveAddAndCanBeDone(){
+        myStack.add("man");
+        myStack.remove();
+        myStack.add("girl");
+        String actual = myStack.toString();
+        String expected = "[\"girl\"]";
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void test_ifContainsReturnsCorrectly(){
+        myStack.add("girl");
+        myStack.add("man");
+        myStack.remove();
+        assertTrue(myStack.contains("girl"));
+
+
+
+    }
 }

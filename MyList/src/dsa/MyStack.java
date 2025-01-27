@@ -3,10 +3,29 @@ package dsa;
 public class MyStack {
     MyList myList = new MyList();
     private int size = 0;
+    private int add = 0;
 
-    public void add(String item){
-        myList.add(item);
-        size++;
+    public void add(String item) {
+        boolean check = false;
+        if (add == 0) {
+            myList.add(item);
+            size++;
+            add++;
+
+        } else {
+            for (int number = 0; number < size + 1; number++) {
+                if ("null".equals(myList.getList()[number]) == true) {
+                    myList.getList()[number] = "girl";
+                    size++;
+                    check = true;
+                    break;
+                }
+            }
+            if (check == false) {
+                myList.add(item);
+                size++;
+            }
+        }
     }
 
 
@@ -33,6 +52,12 @@ public class MyStack {
     }
 
     public void remove() {
+        myList.getList()[size - 1] = "null";
         size--;
+    }
+
+    public boolean contains(String item) {
+        if (myList.contains(item) == true) return  true;
+        else return false;
     }
 }
