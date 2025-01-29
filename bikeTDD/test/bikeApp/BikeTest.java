@@ -34,8 +34,48 @@ public class BikeTest {
     public void test_ifBikeOnCanAccelerate(){
         bike.turnOn();
         bike.accelerate();
-        String expected = 1;
-        String actual = bike.getSpeed();
+        int expected = 1;
+        int actual = bike.getSpeed();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test_ifBikeOnCanAccelerateAgain(){
+        bike.turnOn();
+        bike.setSpeed(15);
+        bike.accelerate();
+        int expected = 16;
+        int actual = bike.getSpeed();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_ifBikeSpeedIncreasesByTwoInGearTwo(){
+        bike.turnOn();
+        bike.setSpeed(21);
+        bike.accelerate();
+        int expected = 23;
+        int actual = bike.getSpeed();
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void test_ifBikeCanAccelerateOff(){
+        bike.setSpeed(21);
+        bike.accelerate();
+        int expected = 21;
+        int actual = bike.getSpeed();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_ifBikeDecelerate(){
+        bike.setSpeed(48);
+        bike.decelerate();
+        int expected = 44;
+        int actual = bike.getSpeed();
+        assertEquals(expected, actual);
+    }
+
 }
