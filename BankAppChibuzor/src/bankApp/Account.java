@@ -6,31 +6,35 @@ public class Account {
     private String password;
     private Double balance;
     private int index;
+    private String accountNumber;
 
 
 
-    public Double getBalance(int accountNumber, String Password) {
+    public Double getBalance(String accountNumber, String Password) {
         if (numberCheck(accountNumber) == true && passwordCorrect(Password) == true){
             return balance;
         }
         else throw new IllegalArgumentException("Incorrect details");
     }
 
-    private boolean numberCheck(int accountNumber) {
+    public boolean numberCheck(String accountNumber) {
         for(int number = 0; number < bank.accountNumbers.size(); number++){
-            if(bank.accountNumbers[number] == accountNumber){
+            if(accountNumber == bank.accountNumbers.get(number)){
                 index = number;
                 return true;
-                break;
+
             }
         }
         return false;
+    }
+    public void setACcounNumber(){
+        accountNumber = bank.accountNumbers.get(index);
     }
 
     private boolean passwordCorrect(String password) {
         if (this.password == password) return true;
         else return false;
     }
-    private void setPassword(){this.password = bank.passwords[index]}
+    private void setPassword(){this.password = bank.getPassword(index);}
 
 }

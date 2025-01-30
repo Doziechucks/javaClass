@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 
 public class AccountTest {
@@ -18,8 +19,9 @@ public class AccountTest {
     @Test
     public void test_ifBalanceIsZero(){
         Double expected = 0.0;
-        Double actual = account.getBalance();
+        Double actual = account.getBalance("7654789989", "6767");
         assertEquals(expected, actual);
+
     }
 
 
