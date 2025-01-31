@@ -16,8 +16,8 @@ public class BankTest {
 
     @Test
     public void test_ifMyAccountNumberIsAdded(){
-        bank.addAccount("2323232323");
-        String actual = bank.getAccountNumber(bank.getIndex());
+        bank.addAccount("2323232323", "6767");
+        String actual = bank.getAccountNumber(bank.getIndex("2323232323"));
         String expected = "2323232323";
         assertEquals(actual, expected);
 

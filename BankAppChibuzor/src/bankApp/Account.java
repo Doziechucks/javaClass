@@ -4,37 +4,33 @@ public class Account {
     Bank bank = new Bank();
 
     private String password;
-    private Double balance;
+    private double balance;
     private int index;
-    private String accountNumber;
+    private String fullName;
+    private int accountNumber;
 
-
-
-    public Double getBalance(String accountNumber, String Password) {
-        if (numberCheck(accountNumber) == true && passwordCorrect(Password) == true){
-            return balance;
-        }
-        else throw new IllegalArgumentException("Incorrect details");
+    public Account(String fullName, String password, int accountNumber) {
+        this.password = password;
+        this.fullName = fullName;
+        this.accountNumber = accountNumber;
     }
 
-    public boolean numberCheck(String accountNumber) {
-        for(int number = 0; number < bank.accountNumbers.size(); number++){
-            if(accountNumber == bank.accountNumbers.get(number)){
-                index = number;
-                return true;
 
-            }
-        }
-        return false;
-    }
-    public void setACcounNumber(){
-        accountNumber = bank.accountNumbers.get(index);
+    public int getAccountNumber() {
+        return accountNumber;
     }
 
-    private boolean passwordCorrect(String password) {
-        if (this.password == password) return true;
-        else return false;
+    public double getBalance() {
+        return balance;
     }
-    private void setPassword(){this.password = bank.getPassword(index);}
 
+    public void deposit(double depositAmount) {
+        if (depositAmount > 0) balance = balance + depositAmount;
+        else throw new IllegalArgumentException("Invalid input");
+    }
+
+    public void withdraw(double removedAmount) {
+        if (removedAmount > 0 && removedAmount <= balance) balance = balance - removedAmount;
+        else throw new IllegalArgumentException("Invalid input");
+    }
 }

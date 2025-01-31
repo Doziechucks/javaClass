@@ -14,8 +14,9 @@ public class Bank{
         return passwords.get(index);
     }
 
-    public void addAccount(String accountnumber){
+    public void addAccount(String accountnumber, String password){
         accountNumbers.add(accountnumber);
+        passwords.add(password);
 
     }
 
