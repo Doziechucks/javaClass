@@ -21,7 +21,6 @@ public class Bank {
         if(firstName.isEmpty()) throw new IllegalArgumentException("Invalid first name");
         if(lastName.isEmpty()) throw new IllegalArgumentException("Invalid second name");
         accounts.add(account);
-        System.out.println(accounts.toString());
     }
 
 
