@@ -11,67 +11,61 @@ public class AccountTest {
     Account account;
 
     @BeforeEach
-    public void setAccount(){
-        account = new Account("firstName", "lastName", "1212", 1, 0.0);
+    public void setAccount() {
+        account = new Account("firstName", "lastName", "1212", 1);
     }
 
     @Test
-    public void test_ifAccountNumberIsAdded(){
-        int actual = account.getAccountNumber();
-        int expected = 1;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void test_returnBalance(){
-        double actual = account.getBalance(1,"1212");
+    public void test_toReturnBalance(){
+        double actual = account.getBalance("1212");
         double expected = 0.0;
-        assertEquals(expected, actual,0.0);
-        }
-
-    @Test
-    public void test_ifBalanceCanAdd(){
-        account.deposit(1, 410.5);
-        double actual = account.getBalance(1,"1212");
-        double expected = 410.5;
         assertEquals(expected, actual, 0.0);
     }
 
     @Test
-    public void test_ifInvalidInputIsRaised(){
-        account.passwordCheck("1212");
-        assertThrows(IllegalArgumentException.class, ()-> account.deposit(-300, 410.5));
+    public void test_ifFirstNameIsReturned(){
+        String actual = account.getFirstName();
+        String expected = "firstName";
+        assertEquals(expected, actual);
 
     }
 
     @Test
-    public void test_ifAccountWithdrwas() {
-        account.deposit(1, 410.5);
-        account.withdraw(1,10.5, "1212");
-        double actual = account.getBalance(1,"1212");
+    public void test_ifMoneyIsdeposited(){
+        account.deposit(420.5);
+        double actual = account.getBalance("1212");
+        double expected = 420.5;
+        assertEquals(actual, expected, 0.0);
+    }
+
+    @Test
+    public void test_ifMoneyIsWithdrawn(){
+        account.deposit(420.5);
+        account.withdraw("1212",20.5);
+        double actual = account.getBalance("1212");
         double expected = 400;
-        assertEquals(expected, actual, 0.0);
-    }
-    @Test
-    public void test_ifInvalidInputIsRaisedForWithdrawn(){
-        account.deposit(1, 410.5);
-        assertThrows(IllegalArgumentException.class, ()-> account.withdraw(1,-300, "1212"));
-    }
-
-    @Test
-    public void test_ifInvaidDetailsIsRaised(){
-        account.deposit(1, 410.5);
-        assertThrows(IllegalArgumentException.class, ()-> account.withdraw(1,300, "121"));
+        assertEquals(actual, expected, 0.0);
 
     }
 
     @Test
-    public void testIfPinCanBeChanged(){
-        assertTrue(account.channgePin(1,"1212", "1414"));
+    public void test_ifDepositBelowZeroThrowsException(){
+        assertThrows(IllegalArgumentException.class, ()-> account.deposit(-420));
+    }
 
-    }
     @Test
-    public void test_errorIsThrownIfPasswordIncorrect(){
-        assertThrows(IllegalArgumentException.class, ()-> account.channgePin(1, "1234", "1414"));
+    public void test_withdrawThrowsExceptionForWrongPassword(){
+        assertThrows(IllegalArgumentException.class, ()-> account.withdraw("1213",20.5));
     }
+
+    @Test
+    public void test_ifPinChanges(){
+        assertTrue(account.updatePin("1212", "1321"));
+    }
+
+    @Test
+    public void test_ifErrorIsRaisedWithWrongPassword(){
+        assertThrows(IllegalArgumentException.class, ()-> account.updatePin("1211", "1321"));
+    }
+
 }

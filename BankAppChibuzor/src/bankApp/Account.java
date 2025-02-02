@@ -23,7 +23,6 @@ public class Account {
     }
 
 
-
     public String getFirstName() {
         return firstName;
     }
@@ -57,10 +56,12 @@ public class Account {
 
     }
 
-    public void updatePin(String oldPin, String newPin){
+    public boolean updatePin(String oldPin, String newPin){
         if(this.password != oldPin) throw new IllegalArgumentException("Invalid Password");
-        if(newPin.isEmpty()) throw new IllegalArgumentException("Password is empty");
+        else if(newPin.isEmpty()) throw new IllegalArgumentException("Password is empty");
         password = newPin;
+        return true;
     }
+
 
 }

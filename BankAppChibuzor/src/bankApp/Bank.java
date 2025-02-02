@@ -4,57 +4,56 @@ import java.util.ArrayList;
 
 public class Bank {
     private ArrayList<Account> accounts;
-    private int accoutnNumber;
+    private int accountNumber;
 
 
     public Bank() {
         accounts = new ArrayList<>();
+        this.accountNumber = accountNumber;
+
     }
 
 
-
-
-    public String getPassword(int index) {
-        return passwords.get(index);
-    }
 
     public void createAccount(String password, String firstName, String lastName) {
-        Account account = new Account(firstName, lastName, password, ++accoutnNumber);
-        if(password.isEmpty()) throw new IllegalArgumentException("ivalid password")
+        Account account = new Account(firstName, lastName, password, ++accountNumber);
+        if(password.isEmpty()) throw new IllegalArgumentException("Invalid password input");
+        if(firstName.isEmpty()) throw new IllegalArgumentException("Invalid first name");
+        if(lastName.isEmpty()) throw new IllegalArgumentException("Invalid second name");
         accounts.add(account);
-
+        System.out.println(accounts.toString());
     }
 
-    public int getAccountNumber(int index) {
-        return accountNumbers.get(index);
-    }
 
-    public int getIndex(int accountNumber) {
 
-        for (int number = 0; number < accountNumbers.size(); number++) {
-            if (accountNumber == accountNumbers.get(number)) {
-                index = number;
+
+    public int findAccount(int accountNumba){
+        int index = 0;
+        for(int number = 0; number < accounts.size(); number++){
+            if (accounts.get(number).getAccountNumber() == accountNumba) {
+                index =  number;
                 return index;
             }
         }
-        throw new IllegalArgumentException("Incorrect details");
+        throw new IllegalArgumentException("account number not found");
     }
 
-    public void withdraw(int accountNumber, double money, String pass) {
-        account.withdraw(accountNumber, money, pass);
+    public void deposit(int accoutNumber, double amount){
+        accounts.get(findAccount(accoutNumber)).deposit(amount);
+
     }
 
-    public void deposit(int accountNumber, double money) {
-        account.deposit(accountNumber, money);
-    }
-
-    public void transfer(int accountNumber1, String password1, double amount, int accountNumber2) {
-        Bank bank = new Bank();
-        bank.withdraw(accountNumber1, amount, password1);
-        bank.deposit(accountNumber2, amount);
-    }
 
     public double getBalance(int accountNumber, String password) {
-        return account.getBalance(accountNumber, password);
+        return accounts.get(findAccount(accountNumber)).getBalance(password);
+    }
+
+    public void withdraw(String password, int accountNumber, double amount) {
+        accounts.get(findAccount(accountNumber)).withdraw(password, amount);
+    }
+
+    public void transfer(int accountNumberOne, String password, double amount, int accountNumberTwo ) {
+        accounts.get(findAccount(accountNumberOne)).withdraw(password, amount);
+        accounts.get(findAccount(accountNumberTwo)).deposit(amount);
     }
 }
