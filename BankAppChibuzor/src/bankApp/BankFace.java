@@ -11,14 +11,22 @@ public class BankFace {
         switch (userInput) {
             case 1 -> createAccount();
             case 2 -> deposit();
+
         }
 
     }
 
     private static void deposit() {
         print("Enter account number: ");
-        String account = input.nextInt();
+        String accountNumber = input.nextLine();
+        try{
+            int accountNumba = Integer.parseInt(accountNumber);
+        }
+        catch(NumberFormatException e) {
+            print("Enter account number: ");
+            accountNumber = input.nextLine();
 
+        }
 
 
     }
@@ -55,7 +63,8 @@ public class BankFace {
             else check = 0;
         }
         bank.createAccount(firstName, lastName, pin);
-
+        System.out.printf("account created successfully");
 
     }
+
 }
