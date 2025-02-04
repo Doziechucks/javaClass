@@ -1,39 +1,52 @@
 package bankApp;
 import java.text.ParseException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BankFace {
     static Bank bank = new Bank();
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
+        print("welcome to Mr Chi's Bank");
+
+        bankStart();
+
+        }
+
+    public static void bankStart(){
         userOptions();
         int userInput = input.nextInt();
+        input.nextLine();
         switch (userInput) {
             case 1 -> createAccount();
             case 2 -> deposit();
-
         }
 
     }
 
     private static void deposit() {
-        print("Enter account number: ");
+        int accountNumberInput = accountTry();;
+        double inputAmount = amountTry();
+        bank.deposit(accountNumberInput, inputAmount);
+        print("you have successfully deposited "+ inputAmount);
+        bankStart();
+    }
+
+    public static String amountPrompt(){
+        print("enter aamount to deposit: ");
+        String enterAmount = input.nextLine();
+        return enterAmount;
+    }
+
+
+    public static String promptAccount(){
+        print("enter account number: ");
         String accountNumber = input.nextLine();
-        try{
-            int accountNumba = Integer.parseInt(accountNumber);
-        }
-        catch(NumberFormatException e) {
-            print("Enter account number: ");
-            accountNumber = input.nextLine();
-
-        }
-
-
+        return accountNumber;
     }
 
     public static void userOptions() {
         print("""
-                welcome to Mr Chi's Bank
                 1. create account
                 2. deposit
                 3. withdraw
@@ -64,7 +77,38 @@ public class BankFace {
         }
         bank.createAccount(firstName, lastName, pin);
         System.out.printf("account created successfully");
+        bankStart();
+    }
+    public static double amountTry(){
+        boolean check = true;
+        double amount = 0;
+        String enterAmount = amountPrompt();
+        while (check == true){
+            try {
+                amount = Double.parseDouble(enterAmount);
+                check = false;
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+                enterAmount = amountPrompt();
+            }
+        }
+        return amount;
+    }
 
+    public static int accountTry(){
+        String account = promptAccount();
+        boolean repeat = true;
+        int number = 0;
+        while (repeat == true) {
+            try {
+                number = Integer.parseInt(account);
+                repeat = false;
+            } catch (Exception e) {
+                System.out.println("Invalid input");
+                account = promptAccount();
+            }
+        }
+        return number;
     }
 
 }
