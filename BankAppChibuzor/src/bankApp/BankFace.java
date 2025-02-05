@@ -8,7 +8,6 @@ public class BankFace {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         print("welcome to Mr Chi's Bank");
-
         bankStart();
 
         }
@@ -20,6 +19,7 @@ public class BankFace {
         switch (userInput) {
             case 1 -> createAccount();
             case 2 -> deposit();
+            case 3 -> withdraw();
         }
 
     }
@@ -27,7 +27,7 @@ public class BankFace {
     private static void deposit() {
         try {
             int accountNumberInput = accountTry();
-            double inputAmount = amountTry();
+            double inputAmount = amountTry(2);
             bank.deposit(accountNumberInput, inputAmount);
             print("you have successfully deposited " + inputAmount);
             bankStart();
@@ -38,11 +38,16 @@ public class BankFace {
     }
 
     public static String amountPrompt(){
-        print("enter aamount to deposit: ");
+        print("enter amount to deposit: ");
         String enterAmount = input.nextLine();
         return enterAmount;
     }
 
+    public static String amountPromptTwo(){
+        print("enter amount to withdraw: ");
+        String enterAmount = input.nextLine();
+        return enterAmount;
+    }
 
     public static String promptAccount(){
         print("enter account number: ");
@@ -62,6 +67,15 @@ public class BankFace {
                 """);
 
 
+    }
+
+    private static void withdraw() {
+
+        int accountNumberInput = accountTry();
+        double inputAmount = amountTry(3);
+        String pass = pinPrompt();
+        bank.withdraw(pass, accountNumberInput, inputAmount);
+        print("withdrawal of " + inputAmount + "successful");
     }
     public static void print(String text){
         System.out.println(text);
@@ -84,17 +98,26 @@ public class BankFace {
         System.out.printf("account created successfully");
         bankStart();
     }
-    public static double amountTry(){
-        boolean check = true;
+    public static double amountTry(int choice){
         double amount = 0;
-        String enterAmount = amountPrompt();
+        boolean check = true;
+        String enterAmount = "";
+        switch (choice){
+            case 2-> enterAmount = amountPrompt();
+            case 3-> enterAmount = amountPromptTwo();
+        }
         while (check == true){
             try {
                 amount = Double.parseDouble(enterAmount);
                 check = false;
             } catch (Exception e) {
                 System.out.println("Invalid input");
-                enterAmount = amountPrompt();
+                switch (choice){
+                    case 2-> enterAmount = amountPrompt();
+                    case 3-> enterAmount = amountPromptTwo();
+                }
+                ;
+
             }
         }
         return amount;
@@ -114,6 +137,12 @@ public class BankFace {
             }
         }
         return number;
+    }
+
+    public static String pinPrompt(){
+        print("Enter your pin: ");
+        String pin  = input.nextLine();
+        return pin;
     }
 
 }
