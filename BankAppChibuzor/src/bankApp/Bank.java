@@ -23,7 +23,16 @@ public class Bank {
         accounts.add(account);
     }
 
+    public boolean accountCheck(int accountNumba) {
+        int index = 0;
+        for (int number = 0; number < accounts.size(); number++) {
+            if (accounts.get(number).getAccountNumber() == accountNumba) {
+                return true;
+            }
 
+        }
+        return false;
+    }
 
 
     public int findAccount(int accountNumba){
@@ -34,11 +43,12 @@ public class Bank {
                 return index;
             }
         }
-        throw new IllegalArgumentException("account number not found");
+        return -1;
     }
 
     public void deposit(int accoutNumber, double amount){
-        accounts.get(findAccount(accoutNumber)).deposit(amount);
+        if(findAccount(accoutNumber) == -1)  throw new IllegalArgumentException("invalid account Number");
+        else accounts.get(findAccount(accoutNumber)).deposit(amount);
 
     }
 

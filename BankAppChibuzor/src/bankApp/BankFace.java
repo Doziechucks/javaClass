@@ -25,10 +25,15 @@ public class BankFace {
     }
 
     private static void deposit() {
-        int accountNumberInput = accountTry();;
-        double inputAmount = amountTry();
-        bank.deposit(accountNumberInput, inputAmount);
-        print("you have successfully deposited "+ inputAmount);
+        try {
+            int accountNumberInput = accountTry();
+            double inputAmount = amountTry();
+            bank.deposit(accountNumberInput, inputAmount);
+            print("you have successfully deposited " + inputAmount);
+            bankStart();
+        }catch(Exception e){
+            System.out.println("Invalid Inputs");
+        }
         bankStart();
     }
 
