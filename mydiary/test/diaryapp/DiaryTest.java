@@ -46,4 +46,25 @@ public class DiaryTest {
         assertEquals(1, diary.getSize());
     }
 
+    @Test
+    public void test_ifIdReturnsEntry(){
+        diary.createEntry("my Title", "my body of christ");
+        diary.createEntry("Dozie", "must make money");
+        String actual = diary.findEntryById(1).getBody();
+        String expected = "my body of christ";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_ifEntryIsUpdated(){
+        diary.createEntry("my Title", "my body of christ");
+        diary.createEntry("Dozie", "must make money");
+        diary.updateEntry(2, " no sleeping");
+        String actual = diary.findEntryById(2).getBody();
+        String expected = "must make money no sleeping";
+        assertEquals(expected, actual);
+    }
+
+
+
 }

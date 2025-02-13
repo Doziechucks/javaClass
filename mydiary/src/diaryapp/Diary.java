@@ -3,8 +3,8 @@ package diaryapp;
 import java.util.ArrayList;
 
 public class Diary {
-
-    private ArrayList<Entry> entries;
+    private static int currentId = 1;
+    private final ArrayList<Entry> entries = new ArrayList<>();;
     private String username;
     private String password;
     private boolean isLocked;
@@ -12,20 +12,21 @@ public class Diary {
 
 
     public Diary(String username, String password) {
-        setUserName(username);
-        setPin(password);
-        entries = new ArrayList<>();
+        validateUsername(username);
+        validatePin(password);
+        this.username = username;
+        this.password = password;
         this.isLocked = true;
-        this.id = 1;
+        this.id = currentId++;
 
     }
 
-    private void setPin(String password) {
+    private void validatePin(String password) {
         if (password.isEmpty() == true) throw new IllegalArgumentException("invalid password");
         if (password.contains(" ") == true) throw new IllegalArgumentException("invalid password");
     }
 
-    private void setUserName(String username) {
+    private void validateUsername(String username) {
         if (username.isEmpty() == true) throw new IllegalArgumentException("invalid username");
         if (username.contains(" ") == true) throw new IllegalArgumentException("invalid username");
     }
@@ -37,16 +38,23 @@ public class Diary {
     }
 
     public String getTitle(int id) {
-        if(findEntryById(id) == -1) throw new IllegalArgumentException("invalid Id");
-        int index = findEntryById(id);
+        if(getEntryById(id) == -1) throw new IllegalArgumentException("invalid Id");
+        int index = getEntryById(id);
         return entries.get(index).getTitle();
     }
 
-    public int findEntryById(int id){
+    public int getEntryById(int id){
         validateId(id);
             for(Entry entry: this.entries)
                 if (id == entry.getId()) return entries.indexOf(entry);
         return -1;
+    }
+
+    public Entry findEntryById(int id){
+        validateId(id);
+        for(Entry entry: this.entries)
+            if (id == entry.getId()) return entry;
+        throw new IllegalArgumentException("Invalid id");
     }
 
     public void validateId(int id){
@@ -70,7 +78,31 @@ public class Diary {
     }
 
     public void deleteEntry(int id) {
+        validateId(id);
         for(Entry entry: entries)
             if (id == entry.getId()) entries.remove(findEntryById(id));
     }
+
+    public void updateEntry(int id, String update) {
+        StringBuilder sb = new StringBuilder();
+        validateId(id);
+        for(Entry entry: entries)
+            if (id == entry.getId()) {
+                 entry.setBody(entry.getBody().concat(update));
+
+            }
+    }
+    public String getUsername(){
+        return this.username;
+    }
+
+    public boolean validatePassword(String passwordInput){
+        if(this.password.equals(passwordInput)) return true;
+        else return false;
+    }
+
+    public boolean isUsername(String username){
+        return this.username.equals(username);
+    }
+
 }
